@@ -1,0 +1,4 @@
+---
+
+- name: "transmission-daemon | reload settings"
+  command: "invoke-rc.d transmission-daemon reload"

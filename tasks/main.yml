@@ -1,0 +1,15 @@
+---
+
+- name: "transmission-daemon | Ensure transmission-daemon installed"
+  apt:
+    pkg: transmission-daemon
+    state: present
+
+- name: "transmission-daemon | Create settings file"
+  template:
+    src: settings.json.j2
+    dest: /etc/transmission-daemon/settings.json
+    owner: debian-transmission
+    group: debian-transmission
+    mode: 0600
+  notify: "transmission-daemon | reload settings"
