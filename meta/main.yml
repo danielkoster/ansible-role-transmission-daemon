@@ -1,0 +1,18 @@
+---
+
+dependencies: []
+
+galaxy_info:
+  author: danielkoster
+  description: "Completely configurable Ansible role for transmission-daemon on Debian/Ubuntu systems"
+  license: "MIT"
+  min_ansible_version: 1.2
+  platforms:
+    - name: Debian
+      versions:
+      - all
+    - name: Ubuntu
+      versions:
+      - all
+  galaxy_tags:
+    - networking
