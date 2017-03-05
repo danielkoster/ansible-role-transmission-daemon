@@ -10,7 +10,10 @@ galaxy_info:
   platforms:
     - name: Debian
       versions:
-      - all
+      - wheezy
+      - jessie
+      - stretch
+      - sid
     - name: Ubuntu
       versions:
       - precise
