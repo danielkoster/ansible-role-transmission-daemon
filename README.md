@@ -1,4 +1,6 @@
 # Ansible role: transmission-daemon
+[![Build Status](https://travis-ci.org/danielkoster/ansible-role-transmission-daemon.svg?branch=master)](https://travis-ci.org/danielkoster/ansible-role-transmission-daemon)
+
 Installs and configures the Transmission daemon on Debian/Ubuntu servers.
 
 ## Requirements
