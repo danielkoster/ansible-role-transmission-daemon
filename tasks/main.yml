@@ -13,3 +13,8 @@
     group: debian-transmission
     mode: 0600
   notify: "transmission-daemon | reload settings"
+
+- name: "transmission-daemon | Ensure transmission-daemon running"
+  service:
+    name: transmission-daemon
+    state: started
