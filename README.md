@@ -6,7 +6,7 @@ Installs and configures the Transmission daemon on Debian/Ubuntu servers.
 ## Requirements
 There are no special requirements. Note that this role requires root access, so either run it in a playbook with a global `become: yes`, or invoke the role in your playbook like:
 
-```
+```yaml
 - hosts: transmission
   roles:
     - role: danielkoster.transmission-daemon
@@ -19,7 +19,7 @@ Every option in the `settings.json` configuration file can be specified. See the
 __NOTE__: Make sure you set `transmission_rpc_password` to a secure password, or disable RPC login.
 
 ## Example Playbook
-```
+```yaml
 - hosts: transmission
   become: yes
   roles:
@@ -27,7 +27,7 @@ __NOTE__: Make sure you set `transmission_rpc_password` to a secure password, or
 ```
 
 *Inside `vars/main.yml`*:
-```
+```yaml
 transmission_dht_enabled: false
 transmission_max_peers_global: 1000
 ```
