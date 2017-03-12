@@ -14,6 +14,16 @@
     mode: 0600
   notify: "transmission-daemon | reload settings"
 
+- name: "transmission-daemon | Create required directories"
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: debian-transmission
+    group: debian-transmission
+  with_items:
+    - "{{ transmission_download_dir }}"
+    - "{{ transmission_incomplete_dir }}"
+
 - name: "transmission-daemon | Ensure transmission-daemon running"
   service:
     name: transmission-daemon
