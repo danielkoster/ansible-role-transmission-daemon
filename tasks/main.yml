@@ -11,7 +11,7 @@
     dest: /etc/transmission-daemon/settings.json
     owner: debian-transmission
     group: debian-transmission
-    mode: 0600
+    mode: 0660
   notify: "transmission-daemon | reload settings"
 
 - name: "transmission-daemon | Create required directories"
