@@ -1,0 +1,16 @@
+---
+transmission_config_dir:
+  Debian: /etc/transmission-daemon/settings.json
+  Ubuntu: /etc/transmission-daemon/settings.json
+  Fedora: /var/lib/transmission/.config/transmission-daemon/settings.json
+  RedHat: /var/lib/transmission/.config/transmission-daemon/settings.json
+transmission_user:
+  Debian: debian-transmission
+  Ubuntu: debian-transmission
+  Fedora: transmission
+  RedHat: transmission
+transmission_group:
+  Debian: debian-transmission
+  Ubuntu: debian-transmission
+  Fedora: transmission
+  RedHat: transmission
