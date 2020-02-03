@@ -3,4 +3,5 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - ansible-role-transmission-daemon
+    - role: ansible-role-transmission-daemon
+      become: yes
