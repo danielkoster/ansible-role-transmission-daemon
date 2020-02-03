@@ -21,5 +21,9 @@ galaxy_info:
       - vivid
       - xenial
       - yakkety
+    - name: Fedora
+      versions:
+      - 30
+      - 31
   galaxy_tags:
     - networking
