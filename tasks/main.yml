@@ -5,15 +5,6 @@
     name: transmission-daemon
     state: present
 
-- name: "transmission-daemon | Create settings file"
-  template:
-    src: settings.json.j2
-    dest: "{{ transmission_config_dir[ansible_distribution] }}"
-    owner: "{{ transmission_user[ansible_distribution] }}"
-    group: "{{ transmission_group[ansible_distribution] }}"
-    mode: 0600
-  notify: "transmission-daemon | reload settings"
-
 - name: "transmission-daemon | Create required directories"
   file:
     path: "{{ item }}"
@@ -23,6 +14,16 @@
   with_items:
     - "{{ transmission_download_dir }}"
     - "{{ transmission_incomplete_dir }}"
+    - "{{ transmission_config_dir[ansible_distribution] }}"
+
+- name: "transmission-daemon | Create settings file"
+  template:
+    src: settings.json.j2
+    dest: "{{ transmission_config_dir[ansible_distribution] }}"
+    owner: "{{ transmission_user[ansible_distribution] }}"
+    group: "{{ transmission_group[ansible_distribution] }}"
+    mode: 0600
+  notify: "transmission-daemon | reload settings"
 
 - name: "transmission-daemon | Ensure transmission-daemon running"
   service:
