@@ -20,5 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Ensure required directories are created
 
+[1.2.1]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.2.0...1.2.1
+[1.2.0]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.0.1...1.1.0
 [1.0.1]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.0.0...1.0.1
