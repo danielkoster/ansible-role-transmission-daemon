@@ -1,9 +1,9 @@
 ---
 transmission_config_dir:
-  Debian: /etc/transmission-daemon/
-  Ubuntu: /etc/transmission-daemon/
-  Fedora: /var/lib/transmission/.config/transmission-daemon/
-  RedHat: /var/lib/transmission/.config/transmission-daemon/
+  Debian: /etc/transmission-daemon
+  Ubuntu: /etc/transmission-daemon
+  Fedora: /var/lib/transmission/.config/transmission-daemon
+  RedHat: /var/lib/transmission/.config/transmission-daemon
 transmission_user:
   Debian: debian-transmission
   Ubuntu: debian-transmission
