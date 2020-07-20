@@ -19,7 +19,7 @@
 - name: "transmission-daemon | Create settings file"
   template:
     src: settings.json.j2
-    dest: "{{ transmission_config_dir[ansible_distribution] }}"
+    dest: "{{ transmission_config_dir[ansible_distribution] }}/settings.json"
     owner: "{{ transmission_user[ansible_distribution] }}"
     group: "{{ transmission_group[ansible_distribution] }}"
     mode: 0600
