@@ -46,6 +46,8 @@ transmission_rename_partial_files: true
 transmission_rpc_authentication_required: true
 transmission_rpc_bind_address: "0.0.0.0"
 transmission_rpc_enabled: true
+transmission_rpc_host_whitelist: ""
+transmission_rpc_host_whitelist_enabled: true
 transmission_rpc_password: "{ceb750effbb94a35e716a9cb35f9bd5d80f3d15atPYCoMnh"
 transmission_rpc_port: 9091
 transmission_rpc_url: "/transmission/"
