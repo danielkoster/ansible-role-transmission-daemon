@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Fixed
+- Added missing configuration options, fixed default values. See [issue #11](https://github.com/danielkoster/ansible-role-transmission-daemon/issues/11).
+
 ## [1.2.1] - 2020-07-20
 ### Fixed
 - Ensure config directory created. See [issue #9](https://github.com/danielkoster/ansible-role-transmission-daemon/issues/9)
@@ -20,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Ensure required directories are created
 
+[Unreleased]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.2.1...master
 [1.2.1]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/danielkoster/ansible-role-transmission-daemon/compare/1.0.1...1.1.0
