@@ -4,3 +4,8 @@
   service:
     name: transmission-daemon
     state: reloaded
+
+- name: "transmission_exporter | reload service"
+  service:
+    name: transmission_exporter
+    state: reloaded

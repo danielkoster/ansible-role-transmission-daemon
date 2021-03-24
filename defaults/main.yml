@@ -70,3 +70,18 @@ transmission_upload_limit: 100
 transmission_upload_limit_enabled: 0
 transmission_upload_slots_per_torrent: 14
 transmission_utp_enabled: true
+
+## Transmission Exporter
+transmission_exporter_install: false
+transmission_exporter_version: 0.3.0
+transmission_exporter_user: transmission_exporter
+transmission_exporter_group: transmission_exporter
+transmission_exporter_tmp_path: "/tmp/transmission-exporter-{{ transmission_exporter_version }}"
+transmission_exporter_install_path: "/opt/transmission-exporter"
+transmission_exporter_bin_path: "/usr/bin/transmission-exporter"
+
+### Transmission exporter service
+transmission_exporter_private_tmp: true
+transmission_exporter_max_files: 32768
+transmission_exporter_documentation_link: "https://github.com/metalmatze/transmission-exporter"
+transmission_exporter_log_output: "{% if transmission_exporter_log_file is defined %} file:{{ transmission_exporter_log_file }} {% else %} journal {% endif %}"
