@@ -12,7 +12,7 @@ Group={{ transmission_exporter_group }}
 RuntimeDirectory=transmission_exporter
 LimitNOFILE={{ transmission_exporter_max_files }}
 
-ExecStart=
+ExecStart={{ transmission_exporter_bin_path }}
 
 StandardOutput={{ transmission_exporter_log_output }}
 StandardError={{ transmission_exporter_log_output }}
