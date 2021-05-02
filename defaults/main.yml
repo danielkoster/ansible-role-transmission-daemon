@@ -76,7 +76,7 @@ transmission_exporter_install: false
 transmission_exporter_version: 0.3.0
 transmission_exporter_user: transmission_exporter
 transmission_exporter_group: transmission_exporter
-transmission_exporter_tmp_path: "/tmp/transmission-exporter-{{ transmission_exporter_version }}"
+transmission_exporter_tmp_path: "/tmp
 transmission_exporter_install_path: "/opt/transmission-exporter"
 transmission_exporter_bin_path: "/usr/bin/transmission-exporter"
 

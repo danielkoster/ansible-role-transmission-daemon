@@ -27,14 +27,11 @@
 
 - name: "transmission-exporter | Ensure install paths"
   file:
-    dest: "{{ item }}"
+    dest: "{{ transmission_exporter_install_path }}"
     owner: "{{ transmission_exporter_user }}"
     group: "{{ transmission_exporter_group }}"
     state: directory
   when: transmission_exporter_check is failed
-  with_items:
-    - "{{ transmission_exporter_install_path }}"
-    - "{{ transmission_exporter_tmp_path }}"
 
 - name: "transmission-exporter | Download sources"
   get_url:
@@ -52,13 +49,13 @@
 
 - name: "transmission-exporter | Build from sources"
   make:
-    chdir: "{{ transmission_exporter_tmp_path }}"
+    chdir: "{{ transmission_exporter_tmp_path }}/transmission-exporter-{{ transmission_exporter_version }}"
     target: build
   when: transmission_exporter_check is failed
 
 - name: "transmission-exporter | Copy binary"
   copy:
-    src: "{{ transmission_exporter_tmp_path }}/transmission-exporter"
+    src: "{{ transmission_exporter_tmp_path }}/transmission-exporter-{{ transmission_exporter_version }}/transmission-exporter"
     dest: "{{ transmission_exporter_install_path }}/transmission-exporter"
     owner: "{{ transmission_exporter_user }}"
     group: "{{ transmission_exporter_group }}"
