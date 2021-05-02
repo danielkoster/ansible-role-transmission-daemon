@@ -27,11 +27,14 @@
 
 - name: "transmission-exporter | Ensure install paths"
   file:
-    dest: "{{ transmission_exporter_install_path }}"
+    dest: "{{ item }}"
     owner: "{{ transmission_exporter_user }}"
     group: "{{ transmission_exporter_group }}"
     state: directory
   when: transmission_exporter_check is failed
+  with_items:
+    - "{{ transmission_exporter_install_path }}"
+    - "{{ transmission_exporter_tmp_path }}"
 
 - name: "transmission-exporter | Download sources"
   get_url:
