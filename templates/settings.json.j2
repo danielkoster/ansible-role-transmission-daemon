@@ -1,3 +1,4 @@
+
 {
     "alt-speed-down": {{ transmission_alt_speed_down }},
     "alt-speed-enabled": {{ transmission_alt_speed_enabled | lower }},
@@ -8,9 +9,16 @@
     "alt-speed-up": {{ transmission_alt_speed_up }},
     "bind-address-ipv4": "{{ transmission_bind_address_ipv4 }}",
     "bind-address-ipv6": "{{ transmission_bind_address_ipv6 }}",
+    "announce-ip": {{ transmission_announce_ip }},
+    "announce-ip-enabled": {{ transmission_announce_ip_enabled }},
+    "anti-brute-force-enabled": {{ transmission_anti_brute_force_enabled }},
+    "anti-brute-force-threshold": {{ transmission_anti_brute_force_threshold }},
+    "blocklist-date": {{ transmission_blocklist_date }},
     "blocklist-enabled": {{ transmission_blocklist_enabled | lower }},
     "blocklist-url": "{{ transmission_blocklist_url }}",
+    "blocklist-updates-enabled": {{ transmission_blocklist_updates_enabled }},
     "cache-size-mb": {{ transmission_cache_size_mb }},
+    "default-trackers": "{{ transmission_default_trackers }}",
     "dht-enabled": {{ transmission_dht_enabled | lower }},
     "download-dir": "{{ transmission_download_dir }}",
     "download-limit": {{ transmission_download_limit }},
@@ -54,9 +62,14 @@
     "rpc-username": "{{ transmission_rpc_username }}",
     "rpc-whitelist": "{{ transmission_rpc_whitelist }}",
     "rpc-whitelist-enabled": {{ transmission_rpc_whitelist_enabled | lower }},
+    "rpc-socket-mode": "{{ transmission_rpc_socket_mode }}",
     "scrape-paused-torrents-enabled": {{ transmission_scrape_paused_torrents_enabled | lower }},
+    "script-torrent-added-enabled": {{ transmission_script_torrent_added_enabled }},
+    "script-torrent-added-filename": "{{ transmission_script_torrent_added_filename }}",
     "script-torrent-done-enabled": {{ transmission_script_torrent_done_enabled | lower }},
     "script-torrent-done-filename": "{{ transmission_script_torrent_done_filename }}",
+    "script-torrent-done-seeding-enabled": {{ transmission_script_torrent_done_seeding_enabled }},
+    "script-torrent-done-seeding-filename": "{{ transmission_script_torrent_done_seeding_filename }}",
     "seed-queue-enabled": {{ transmission_seed_queue_enabled | lower }},
     "seed-queue-size": {{ transmission_seed_queue_size }},
     "speed-limit-down": {{ transmission_speed_limit_down }},
@@ -64,10 +77,13 @@
     "speed-limit-up": {{ transmission_speed_limit_up }},
     "speed-limit-up-enabled": {{ transmission_speed_limit_up_enabled | lower }},
     "start-added-torrents": {{ transmission_start_added_torrents | lower }},
+    "trash-can-enabled": {{ transmission_trash_can_enabled }},
     "trash-original-torrent-files": {{ transmission_trash_original_torrent_files | lower }},
     "umask": {{ transmission_umask }},
+    "utp-enabled": {{ transmission_utp_enabled | lower }}
+    "watch-dir": {{ transmission_watch_dir }},
+    "watch-dir-enabled": {{ transmission_watch_dir_enabled }}
     "upload-limit": {{ transmission_upload_limit }},
     "upload-limit-enabled": {{ transmission_upload_limit_enabled | lower }},
     "upload-slots-per-torrent": {{ transmission_upload_slots_per_torrent }},
-    "utp-enabled": {{ transmission_utp_enabled | lower }}
 }

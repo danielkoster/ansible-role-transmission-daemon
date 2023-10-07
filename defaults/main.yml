@@ -17,6 +17,8 @@ transmission_download_limit: 100
 transmission_download_limit_enabled: 0
 transmission_download_queue_enabled: true
 transmission_download_queue_size: 5
+transmission_watch_dir_enabled: false
+transmission_watch_dir: ""
 transmission_encryption: 1
 transmission_idle_seeding_limit: 30
 transmission_idle_seeding_limit_enabled: false
@@ -43,6 +45,8 @@ transmission_queue_stalled_minutes: 30
 transmission_ratio_limit: 2
 transmission_ratio_limit_enabled: false
 transmission_rename_partial_files: true
+transmission_anti_brute_force_enabled: true
+transmission_anti_brute_force_threshold: 100
 transmission_rpc_authentication_required: true
 transmission_rpc_bind_address: "0.0.0.0"
 transmission_rpc_enabled: true
@@ -57,6 +61,10 @@ transmission_rpc_whitelist_enabled: true
 transmission_scrape_paused_torrents_enabled: true
 transmission_script_torrent_done_enabled: false
 transmission_script_torrent_done_filename: ""
+transmission_script_torrent_added_enabled: false
+transmission_script_torrent_added_filename: ""
+transmission_script_torrent_done_seeding_enabled: false
+transmission_script_torrent_done_seeding_filename: ""
 transmission_seed_queue_enabled: false
 transmission_seed_queue_size: 10
 transmission_speed_limit_down: 100
@@ -69,4 +77,9 @@ transmission_umask: 18
 transmission_upload_limit: 100
 transmission_upload_limit_enabled: 0
 transmission_upload_slots_per_torrent: 14
+transmission_announce_ip: "{{ ansible_default_ipv4.address }}"
+transmission_announce_ip_enabled: true
+transmission_default_trackers: ""
+transmission_rpc_socket_mode: 0750
+transmission_trash_can_enabled: true
 transmission_utp_enabled: true
