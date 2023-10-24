@@ -1,0 +1,88 @@
+---
+
+- name: "transmission-exporter | Download dependencies"
+  package:
+    name: [golang, git]
+    state: present
+
+- name: "transmission-exporter | Ensure group"
+  group:
+    name: "{{ transmission_exporter_group }}"
+    system: true
+    state: present
+
+- name: "transmission-exporter | Ensure user"
+  user:
+    name: "{{ transmission_exporter_user }}"
+    group: "{{ transmission_exporter_group }}"
+    system: true
+    shell: /usr/sbin/nologin
+    createhome: false
+
+- name: "transmission-exporter | Ensure user"
+  command: "transmission-exporter -h"
+  register: transmission_exporter_check
+  changed_when: false
+  ignore_errors: true
+
+- name: "transmission-exporter | Ensure install paths"
+  file:
+    dest: "{{ transmission_exporter_install_path }}"
+    owner: "{{ transmission_exporter_user }}"
+    group: "{{ transmission_exporter_group }}"
+    state: directory
+  when: transmission_exporter_check is failed
+
+- name: "transmission-exporter | Download sources"
+  get_url:
+    url: "{{ transmission_exporter_download_url }}"
+    dest: /tmp
+  when: transmission_exporter_check is failed
+
+
+- name: "transmission-exporter | Unarchive download"
+  unarchive:
+    src: "/tmp/transmission-exporter-{{ transmission_exporter_version }}.tar.gz"
+    dest: "{{ transmission_exporter_tmp_path }}"
+    remote_src: yes
+  when: transmission_exporter_check is failed
+
+- name: "transmission-exporter | Build from sources"
+  make:
+    chdir: "{{ transmission_exporter_tmp_path }}/transmission-exporter-{{ transmission_exporter_version }}"
+    target: build
+  when: transmission_exporter_check is failed
+
+- name: "transmission-exporter | Copy binary"
+  copy:
+    src: "{{ transmission_exporter_tmp_path }}/transmission-exporter-{{ transmission_exporter_version }}/transmission-exporter"
+    dest: "{{ transmission_exporter_install_path }}/transmission-exporter"
+    owner: "{{ transmission_exporter_user }}"
+    group: "{{ transmission_exporter_group }}"
+    remote_src: true
+    mode: 0755
+  notify: "transmission_exporter | reload service"
+  when: transmission_exporter_check is failed
+
+- name: "transmission-exporter | Link binary"
+  file:
+    src: "{{ transmission_exporter_install_path }}/transmission-exporter"
+    dest: "{{ transmission_exporter_bin_path }}"
+    state: link
+  notify: "transmission_exporter | reload service"
+  when: transmission_exporter_check is failed
+
+- name: "transmission-exporter | Copy service file"
+  template:
+    src: transmission_exporter.service.j2
+    dest: /etc/systemd/system/transmission_exporter.service
+    mode: 0644
+  notify: "transmission_exporter | reload service"
+
+- name: "transmission-exporter | Configure service"
+  systemd:
+    name: transmission_exporter
+    state: "{{ transmission_exporter_state }}"
+    enabled: "{{ transmission_exporter_enabled }}"
+    daemon_reload: true
+  notify: "transmission_exporter | reload service"

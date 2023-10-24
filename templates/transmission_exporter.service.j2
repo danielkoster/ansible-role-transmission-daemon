@@ -1,0 +1,24 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=transmission_exporter
+Documentation={{ transmission_exporter_documentation_link }}
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+PrivateTmp={{ transmission_exporter_private_tmp }}
+User={{ transmission_exporter_user }}
+Group={{ transmission_exporter_group }}
+RuntimeDirectory=transmission_exporter
+LimitNOFILE={{ transmission_exporter_max_files }}
+
+ExecStart={{ transmission_exporter_bin_path }}
+
+StandardOutput={{ transmission_exporter_log_output }}
+StandardError={{ transmission_exporter_log_output }}
+ExecReload=/bin/kill -HUP $MAINPID
+KillSignal=SIGTERM
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

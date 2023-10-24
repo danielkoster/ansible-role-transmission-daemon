@@ -29,3 +29,9 @@
   service:
     name: transmission-daemon
     state: started
+
+- name: "transmission-exporter | Include tasks"
+  include_tasks: exporter.yml
+  when: transmission_exporter_install
+  tags:
+    - transmission_exporter
